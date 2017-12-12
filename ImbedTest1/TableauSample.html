@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+    <title>Filter</title>
+
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+</head>
+
+<body  id="mainContainer">
+    <div class="sidenav">
+        <div id="controls" style="padding:20px;">
+            Year: <select id="changeServiceLine" onchange="document.getElementById('frameView').contentWindow.filterServiceLine(value);">
+                <option value="All IP Combined">All IP Combined</option>
+                <option value="Childbirth">Childbirth</option>
+                <option value="IP Medicine">IP Medicine</option>
+                <option value="IP Surgery">IP Surgery</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="main" id="frameContainer" style="position:relative">
+        <h2></h2>
+        <p></p>
+        <!--<p>Scroll down the page to see the result.</p>   -->
+        
+    </div>
+    <div>
+        <iframe id="frameView"  src="showViz.html" style="height:400%;width:100%;position:absolute;top:0px;bottom:0px;">
+         </iframe>
+    </div>
+
+</body>
+</html>
+<style>
+    body {
+        font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 160px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+        }
+
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
+    .main {
+        margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+    }
+</style>
